@@ -1,23 +1,21 @@
-#creating a module and include it into Array class
-module ArraytoHash
-  def array_to_hash_convert
+#Define method in user-def class and send the Array as argument to that function
+class ArraytoHash
+  def array_to_hash_convert(a)
     myhash={}
-    for i in 0..(self.size-1) do
-      len=self[i].to_s.length
+    for i in 0..(a.size-1) do
+      len=a[i].to_s.length
        if myhash.has_key?(len)
-        myhash[len].push(self[i])
+        myhash[len].push(a[i])
       else
         myhash[len]=[]
-        myhash[len].push(self[i])
+        myhash[len].push(a[i])
       end
     end
 puts myhash
   end
 end
-class Array
-  include ArraytoHash
-end
 
+convertor=ArraytoHash.new
 a=['abc','def',1234,234,'abcd','x','mnop',5,'zZzZ']
-a.array_to_hash_convert
+convertor.array_to_hash_convert(a)
 
