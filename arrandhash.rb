@@ -1,5 +1,5 @@
-#Extending the Array class to myclass
-class  ArraytoHash < Array
+#creating a module and include it into Array class
+module ArraytoHash
   def array_to_hash_convert
     myhash={}
     for i in 0..(self.size-1) do
@@ -14,8 +14,10 @@ class  ArraytoHash < Array
 puts myhash
   end
 end
+class Array
+  include ArraytoHash
+end
 
-a=ArraytoHash.new
-a.push('abc','def',1234,234,'abcd','x','mnop',5,'zZzZ')
+a=['abc','def',1234,234,'abcd','x','mnop',5,'zZzZ']
 a.array_to_hash_convert
 
