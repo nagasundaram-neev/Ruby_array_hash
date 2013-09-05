@@ -1,23 +1,21 @@
-class ArraytoHash 
-  def array_to_hash_convert(a)
+#Extending the Array class to myclass
+class  ArraytoHash < Array
+  def array_to_hash_convert
     myhash={}
-    for i in 0..(a.size-1) do
-      len=a[i].to_s.length
+    for i in 0..(self.size-1) do
+      len=self[i].to_s.length
        if myhash.has_key?(len)
-        myhash[len].push(a[i])
+        myhash[len].push(self[i])
       else
         myhash[len]=[]
-        myhash[len].push(a[i])
+        myhash[len].push(self[i])
       end
     end
 puts myhash
   end
 end
 
+a=ArraytoHash.new
+a.push('abc','def',1234,234,'abcd','x','mnop',5,'zZzZ')
+a.array_to_hash_convert
 
-
-
-
-convertor=ArraytoHash.new
-a=['abc','def',1234,234,'abcd','x','mnop',5,'zZzZ']
-convertor.array_to_hash_convert(a)
